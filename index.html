@@ -2,8 +2,8 @@
 <html lang="ar">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=0.3.5">
-  <title>شجرة العطور</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>niche</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
@@ -14,293 +14,338 @@
       font-style: normal;
     }
 
-    :root {
-      --main-bg-color: #ffffff;
-      --main-text-color: #333333;
-      --nav-bg-color: #ffffff;
-      --nav-link-color: #555555;
-      --nav-link-hover-color: #ff6f61;
-      --card-bg-color: #ffffff;
-      --card-text-color: #333333;
-      --card-footer-bg-color: #f8f9fa;
-      --footer-bg-color: #111111;
-      --header-text-color: #ffffff;
-      --btn-add-to-cart-color: #ff6f61;
-      --btn-hover-color: #ff9478;
-    }
-
     body {
-      background-color: var(--main-bg-color);
-      color: var(--main-text-color);
       direction: rtl;
       text-align: right;
       font-family: 'VEXA', serif;
-      font-weight: 450;
+      background-color: #000000;
+      color: #ffffff;
+      overflow-x: hidden;
     }
 
-    header {
-      background: url('f.jpg') no-repeat center center;
-      background-size: cover;
-      text-align: center;
-      padding: 165px 0;
-      color: var(--header-text-color);
-    }
-
-    .navbar {
-      background-color: var(--nav-bg-color);
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-
-    .navbar-brand img {
-      height: 75px;
-      width: 75px;
-      margin-right: 10px;
-    }
-
-    .nav-link {
-      color: var(--nav-link-color) !important;
-      font-weight: 450;
-    }
-
-    .nav-link:hover {
-      color: var(--nav-link-hover-color) !important;
-      text-decoration: underline;
-    }
-
-    .card {
-      background-color: var(--card-bg-color);
-      color: var(--card-text-color);
-      border-radius: 15px;
+    .homepage-background {
+      position: relative;
       overflow: hidden;
-      margin-bottom: 30px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 100vh; /* لضبط الارتفاع على كامل الشاشة */
     }
 
-    .card:hover {
+    .homepage-background video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: translate(-50%, -50%);
+      z-index: -1; /* خلف المحتوى */
+    }
+
+    .header-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .header-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 200px 0;
+      color: white;
+    }
+
+    .header-text {
+      font-size: 48px;
+      font-weight: bold;
+      animation: fadeIn 2s ease-in-out infinite alternate;
+      margin-top: 20px;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    .section-card {
+      text-align: center;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      margin-bottom: 20px;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .section-card:hover {
       transform: translateY(-10px);
       box-shadow: 0 6px 12px rgba(0,0,0,0.1);
     }
 
-    .card-img-top {
-      height: 200px;
-      object-fit: cover;
+    .section-icon {
+      font-size: 50px;
+      margin-bottom: 10px;
     }
 
-    .card-footer {
-      background-color: var(--card-footer-bg-color);
+    .section-title {
+      font-size: 24px;
+      font-weight: bold;
     }
 
-    .btn-outline-light {
-      color: var(--btn-add-to-cart-color);
+    .navbar {
+      background-color: #000000;
+    }
+
+    .navbar-brand {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .nav-link {
+      color: #ffffff !important;
       font-weight: 450;
-      border-color: var(--btn-add-to-cart-color);
+      padding: 10px;
     }
 
-    .btn-outline-light:hover {
-      color: var(--btn-hover-color);
-      background-color: var(--btn-add-to-cart-color);
-      border-color: var(--btn-add-to-cart-color);
+    .nav-link:hover {
+      color: #ff6f61 !important;
+      text-decoration: underline;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
     }
 
     footer {
-      background-color: var(--footer-bg-color);
+      background-color: #111111;
       color: white;
     }
 
-    .footer-link {
-      color: white;
+    .featured-offers {
+      background-color: #333;
+      padding: 40px 0;
+      text-align: center;
     }
 
-    .footer-link:hover {
-      color: var(--btn-hover-color);
+    .featured-offers h2 {
+      margin-bottom: 30px;
+      font-size: 36px;
+      font-weight: bold;
+    }
+
+    .customer-reviews {
+      background-color: #222;
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    .customer-reviews h2 {
+      margin-bottom: 30px;
+      font-size: 36px;
+      font-weight: bold;
+    }
+
+    .review-card {
+      background-color: #333;
+      padding: 20px;
+      margin: 10px;
+      border-radius: 10px;
     }
 
     @media (max-width: 576px) {
-      header {
+      .header-content {
         padding: 50px 0;
       }
-
-      .navbar-brand img {
-        height: 25px;
-        width: 25px;
-      }
-
-      .card-body {
-        padding: 10px;
-      }
-
-      .card-footer {
-        padding: 10px;
-      }
-
-      .card-img-top {
-        height: 150px;
-        object-fit: scale-down;
-      }
-
-      .card {
-        margin-bottom: 15px;
-        width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-      }
     }
 
-    .col {
-      padding: 0 15px;
-    }
-
-    .nav-link:focus {
-      outline: none;
-      box-shadow: 0 0 0 0.25rem rgba(255, 111, 97, 0.5);
-    }
-
-    .add-to-cart:focus {
-      outline: none;
-      box-shadow: 0 0 0 0.25rem rgba(255, 111, 97, 0.5);
+    .floating-img {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 50%;
+      transition: transform 1s ease-in-out;
+      z-index: 1000;
     }
   </style>
 </head>
 <body>
-  <!-- Navigation-->
-  <nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container px-4 px-lg-5">
-      <a class="navbar-brand" href="#">
-        <img src="m.png" alt="شعار شجرة العطور">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container position-relative">
+      <a class="navbar-brand" href="index.html">
+        <img src="n.PNG" alt="شعار niche" style="height: 125px; width: 140px;">
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="تبديل التنقل">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link active" href="#"><i class="fas fa-home"></i> الرئيسية</a></li>
-          <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-shopping-bag"></i> تسوق</a></li>
-          <li class="nav-item"><a class="nav-link" href="cart.html"><i class="fas fa-shopping-cart"></i> السلة <span id="cart-count" class="badge bg-secondary">0</span></a></li>
-          <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-phone-alt"></i> اتصل بنا</a></li>
+      <div class="justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-home"></i></a></li>
+          <li class="nav-item"><a class="nav-link" href="sections.html"><i class="fas fa-shopping-bag"></i></a></li>
         </ul>
       </div>
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="cart.html"><i class="fas fa-shopping-cart"></i> <span id="cart-count" class="badge bg-secondary">0</span></a></li>
+      </ul>
     </div>
   </nav>
-  <!-- Header-->
-  <header>
-    <div class="container px-4 px-lg-5 my-5">
-      <!-- Add any additional content here -->
+  <div class="homepage-background">
+    <video autoplay muted loop>
+      <source src="https://player.vimeo.com/external/412803527.sd.mp4?s=8fbd4c2f25591e5b34e5e7487e2d57d61245c4ec&profile_id=164&oauth2_token_id=57447761" type="video/mp4">
+      متصفحك لا يدعم فيديو HTML5.
+    </video>
+    <header class="header-content">
+      <div class="header-overlay"></div>
+      <div class="container px-4 px-lg-5 my-5">
+        <div class="header-text">مرحبا بكم في موقع نيش</div>
+      </div>
+    </header>
+  </div>
+  
+  <div class="container mt-5">
+    <div class="row mb-5">
+      <div class="col-md-4">
+        <div class="section-card" onclick="window.location.href='men.html'">
+          <i class="fas fa-male section-icon"></i>
+          <div class="section-title">رجالي</div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="section-card" onclick="window.location.href='women.html'">
+          <i class="fas fa-female section-icon"></i>
+          <div class="section-title">نسائي</div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="section-card" onclick="window.location.href='other.html'">
+          <i class="fas fa-ellipsis-h section-icon"></i>
+          <div class="section-title">آخر</div>
+        </div>
+      </div>
     </div>
-  </header>
-  <!-- Products section-->
-  <section class="py-5">
-    <div class="container px-4 px-lg-5 mt-5">
-      <div class="row gx-4 gx-lg-5 row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 justify-content-center">
-        <!-- Product card 1 -->
-        <div class="col mb-5">
-          <div class="card h-100">
-            <img class="card-img-top" src="t.jpg" alt="...">
-            <div class="card-body p-4">
-              <div class="text-center">
-                <h5 class="fw-bolder">اسم العطر 1</h5>
-                20.00$
-              </div>
-            </div>
-            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-              <div class="text-center"><a class="btn btn-outline-light mt-auto add-to-cart" href="#" data-name="اسم العطر 1" data-price="20.00" data-img="t.jpg">إضافة إلى السلة</a></div>
-            </div>
+  </div>
+
+  <!-- قسم العروض المميزة -->
+  <section class="featured-offers">
+    <h2>عروض مميزة</h2>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="section-card">
+            <img src="t.jpg" alt="عطر 1" class="img-fluid">
+            <div class="section-title">عطر 1</div>
+            <div class="section-price">20 ريال سعودي</div>
+            <button class="btn btn-primary mt-3 add-to-cart" data-name="عطر 1" data-price="20" data-img="t.jpg">إضافة إلى السلة</button>
           </div>
         </div>
-        <!-- Product card 2 -->
-        <div class="col mb-5">
-          <div class="card h-100">
-            <img class="card-img-top" src="t.jpg" alt="...">
-            <div class="card-body p-4">
-              <div class="text-center">
-                <h5 class="fw-bolder">اسم العطر 2</h5>
-                25.00$
-              </div>
-            </div>
-            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-              <div class="text-center"><a class="btn btn-outline-light mt-auto add-to-cart" href="#" data-name="اسم العطر 2" data-price="25.00" data-img="t.jpg">إضافة إلى السلة</a></div>
-            </div>
+        <div class="col-md-4">
+          <div class="section-card">
+            <img src="t.jpg" alt="عطر 2" class="img-fluid">
+            <div class="section-title">عطر 2</div>
+            <div class="section-price">25 ريال سعودي</div>
+            <button class="btn btn-primary mt-3 add-to-cart" data-name="عطر 2" data-price="25" data-img="t.jpg">إضافة إلى السلة</button>
           </div>
         </div>
-        <!-- Product card 3 -->
-        <div class="col mb-5">
-          <div class="card h-100">
-            <img class="card-img-top" src="t.jpg" alt="...">
-            <div class="card-body p-4">
-              <div class="text-center">
-                <h5 class="fw-bolder">اسم العطر 3</h5>
-                30.00$
-              </div>
-            </div>
-            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-              <div class="text-center"><a class="btn btn-outline-light mt-auto add-to-cart" href="#" data-name="اسم العطر 3" data-price="30.00" data-img="t.jpg">إضافة إلى السلة</a></div>
-            </div>
+        <div class="col-md-4">
+          <div class="section-card">
+            <img src="t.jpg" alt="عطر 3" class="img-fluid">
+            <div class="section-title">عطر 3</div>
+            <div class="section-price">30 ريال سعودي</div>
+            <button class="btn btn-primary mt-3 add-to-cart" data-name="عطر 3" data-price="30" data-img="t.jpg">إضافة إلى السلة</button>
           </div>
         </div>
-        <!-- More product cards can be added here -->
       </div>
     </div>
   </section>
-  <!-- Footer-->
-  <footer class="py-5">
-    <div class="container"><p class="m-0 text-center">حقوق النشر &copy; شجرة العطور 2024</p></div>
+  
+  <!-- قسم تعليقات العملاء -->
+  <section class="customer-reviews">
+    <h2>آراء العملاء</h2>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="review-card">
+            <p>“أفضل عطر اشتريته على الإطلاق! رائع ويستمر طويلاً.”</p>
+            <p>- أحمد</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="review-card">
+            <p>“خدمة رائعة وتوصيل سريع. بالتأكيد سأشتري مرة أخرى.”</p>
+            <p>- ليلى</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="review-card">
+            <p>“العطر رائع جداً وأنا سعيد به. شكراً نيش!”</p>
+            <p>- محمد</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">حقوق النشر &copy; niche 2024</p>
+      <p class="m-0 text-left text-white"><a href="mailto:oo3ooi@icloud.com" class="text-white"><i class="fas fa-phone-alt"></i> اتصل بنا</a></p>
+    </div>
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    // إضافة المنتجات إلى السلة
-    const addToCartButtons = document.querySelectorAll('.add-to-cart');
     const cartCount = document.getElementById('cart-count');
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-    cartCount.textContent = cart.reduce((total, product) => total + product.quantity, 0);
+    function updateCartCount() {
+      const totalQuantity = cart.reduce((total, product) => total + product.quantity, 0);
+      cartCount.textContent = totalQuantity;
+    }
 
-    addToCartButtons.forEach(button => {
-      button.addEventListener('click', event => {
-        event.preventDefault();
-        const productName = button.getAttribute('data-name');
-        const productPrice = button.getAttribute('data-price');
-        const productImg = button.getAttribute('data-img');
+    function addToCart(name, price, img) {
+      const product = cart.find(p => p.name === name);
+      if (product) {
+        product.quantity++;
+      } else {
+        cart.push({ name, price, img, quantity: 1 });
+      }
+      localStorage.setItem('cart', JSON.stringify(cart));
+      updateCartCount();
+    }
 
-        const existingProduct = cart.find(product => product.name === productName);
-        if (existingProduct) {
-          existingProduct.quantity += 1;
-        } else {
-          const product = { name: productName, price: productPrice, img: productImg, quantity: 1 };
-          cart.push(product);
-        }
+    function showAddToCartEffect(button, imgSrc) {
+      const cartIcon = document.querySelector('.fa-shopping-cart');
+      const cartPosition = cartIcon.getBoundingClientRect();
+      const buttonPosition = button.getBoundingClientRect();
+      const effectElement = document.createElement('img');
+      effectElement.src = imgSrc;
+      effectElement.classList.add('floating-img');
+      effectElement.style.top = `${buttonPosition.top}px`;
+      effectElement.style.left = `${buttonPosition.left}px`;
+      
+      document.body.appendChild(effectElement);
 
-        localStorage.setItem('cart', JSON.stringify(cart));
-        cartCount.textContent = cart.reduce((total, product) => total + product.quantity, 0);
+      setTimeout(() => {
+        effectElement.style.transform = `translate(${cartPosition.left - buttonPosition.left}px, ${cartPosition.top - buttonPosition.top}px) scale(0.5)`;
+      }, 10);
 
-        // إضافة تأثير الانتقال إلى السلة
-        const imgToDrag = button.closest('.card').querySelector('.card-img-top');
-        if (imgToDrag) {
-          const imgClone = imgToDrag.cloneNode(true);
-          const imgRect = imgToDrag.getBoundingClientRect();
-          imgClone.style.position = 'absolute';
-          imgClone.style.top = imgRect.top + 'px';
-          imgClone.style.left = imgRect.left + 'px';
-          imgClone.style.width = imgRect.width + 'px';
-          imgClone.style.height = imgRect.height + 'px';
-          imgClone.style.transition = 'all 1s ease';
-          imgClone.style.zIndex = '1000';
+      setTimeout(() => {
+        effectElement.remove();
+      }, 1000);
+    }
 
-          document.body.appendChild(imgClone);
-
-          const cartIcon = document.querySelector('.fa-shopping-cart').getBoundingClientRect();
-          setTimeout(() => {
-            imgClone.style.top = cartIcon.top + 'px';
-            imgClone.style.left = cartIcon.left + 'px';
-            imgClone.style.width = '0px';
-            imgClone.style.height = '0px';
-            imgClone.style.opacity = '0.5';
-          }, 100);
-
-          setTimeout(() => {
-            imgClone.remove();
-          }, 1000);
-        }
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+      button.addEventListener('click', () => {
+        const name = button.getAttribute('data-name');
+        const price = button.getAttribute('data-price');
+        const img = button.getAttribute('data-img');
+        addToCart(name, price, img);
+        showAddToCartEffect(button, img);
       });
     });
+
+    updateCartCount();
   </script>
 </body>
 </html>
